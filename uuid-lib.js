@@ -38,15 +38,10 @@ function Uuid(uuid) {
     return value;
   };
   
-  Object.defineProperty(this, "value", {
-    get: function() { return value; },
-    enumerable: true
-  });
+  this.value = value;
 };
 
-Object.defineProperty(Uuid, "EMPTY", {
-  value: "00000000000000000000000000000000"
-});
+Uuid.EMPTY = "00000000000000000000000000000000";
 
 Uuid.isUuid = function(value) {
   return value && (value instanceof Uuid || validator.test(value.toString()));
